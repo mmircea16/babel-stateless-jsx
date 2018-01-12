@@ -1,0 +1,24 @@
+{
+  "name": "babel-stateless-jsx",
+  "version": "0.0.1",
+  "description": "Babel plugin for stateless jsx files",
+  "main": "src/index.js",
+  "directories": {
+    "example": "example",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "babel",
+    "react",
+    "jsx"
+  ],
+  "author": "Mircea Moise",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-plugin-tester": "^5.0.0",
+    "jest": "^22.0.6"
+  }
+}
