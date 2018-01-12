@@ -1,4 +1,6 @@
-class Hello extends React.Component {
+import React from 'react';
+
+export default class Hello extends React.Component {
     render() {
         return SOURCE;
     }

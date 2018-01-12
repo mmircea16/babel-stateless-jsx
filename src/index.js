@@ -7,7 +7,7 @@ module.exports = function ({types: t}) {
     let pathToTemplate = filePath.resolve(__dirname, 'component-template.jsx');
     let classTemplate = fs.readFileSync(pathToTemplate, 'utf-8');
 
-    const buildRequire = template(classTemplate);
+    const buildRequire = template(classTemplate, {sourceType: 'module'});
 
     return {
         name: 'statless-jsx',
