@@ -13,9 +13,12 @@ module.exports = function ({types: t}) {
         name: 'statless-jsx',
         inherits: require("babel-plugin-syntax-jsx"),
         visitor: {
-            ExpressionStatement(nodePath) {
+            ExpressionStatement(nodePath, state) {
+                let fileName = state.file.opts.sourceFileName;
+
                 const ast = templateFor({
-                    SOURCE: nodePath
+                    SOURCE: nodePath,
+                    CLASS_NAME: t.identifier(fileName.replace(".jsx",""))
                 });
 
                 nodePath.replaceWithMultiple(ast);
