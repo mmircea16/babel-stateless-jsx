@@ -1,16 +1,24 @@
 const t = require("babel-types");
+const template = require("babel-template");
+const fs = require('fs');
+const filePath = require('path');
 
-module.exports =  function ({types: t}) {
+module.exports = function ({types: t}) {
+    let pathToTemplate = filePath.resolve(__dirname, 'component-template.jsx');
+    let classTemplate = fs.readFileSync(pathToTemplate, 'utf-8');
+
+    const buildRequire = template(classTemplate);
+
     return {
         name: 'statless-jsx',
+        inherits: require("babel-plugin-syntax-jsx"),
         visitor: {
-            BinaryExpression(path) {
-                if (path.node.operator !== "===") {
-                    return;
-                }
+            ExpressionStatement(path) {
+                const ast = buildRequire({
+                    SOURCE: path
+                });
 
-                path.node.left = t.identifier("fizz");
-                path.node.right = t.identifier("buzz");
+                path.replaceWithMultiple(ast);
             }
         }
     }

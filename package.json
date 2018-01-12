@@ -20,5 +20,9 @@
   "devDependencies": {
     "babel-plugin-tester": "^5.0.0",
     "jest": "^22.0.6"
+  },
+  "dependencies": {
+    "babel-plugin-syntax-jsx": "^6.18.0",
+    "babel-types": "^6.26.0"
   }
 }
