@@ -1,5 +1,4 @@
-const t = require("babel-types");
-const template = require("babel-template");
+const template = require('babel-template');
 const fs = require('fs');
 const filePath = require('path');
 const Visitor = require('./visitor');
@@ -11,8 +10,8 @@ module.exports = function ({types: types}) {
     const templateFor = template(classTemplate, {sourceType: 'module'});
 
     return {
-        name: 'statless-jsx',
-        inherits: require("babel-plugin-syntax-jsx"),
+        name: 'stateless-jsx',
+        inherits: require('babel-plugin-syntax-jsx'),
         visitor: Visitor.create(types, templateFor)
     }
 };
