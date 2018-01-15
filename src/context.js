@@ -1,6 +1,6 @@
 module.exports = {
     getClassName(state) {
         let fileName = state.file.opts.sourceFileName;
-        return fileName.replace(".jsx", "");
+        return fileName.split(".")[0];
     }
 };
