@@ -4,13 +4,16 @@ module.exports = {
 
     create(types, templateFor) {
       return {
-          ExpressionStatement(nodePath, state) {
-              const ast = templateFor({
-                  SOURCE: nodePath,
-                  CLASS_NAME: types.identifier(context.getClassName(state))
-              });
+          JSXElement(nodePath, state) {
+              if (types.isExpressionStatement(nodePath.parent)) {
 
-              nodePath.replaceWithMultiple(ast);
+                  const ast = templateFor({
+                      SOURCE: nodePath.parent,
+                      CLASS_NAME: types.identifier(context.getClassName(state))
+                  });
+
+                  nodePath.replaceWithMultiple(ast);
+              }
           }
       };
     }
