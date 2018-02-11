@@ -28,5 +28,11 @@ describe("retrieving class name", () => {
         let mockState = mockStateWithFileName("catMeme");
 
         expect(context.getClassName(mockState)).toBe('catMeme');
+    });
+
+    it("should be the file name when is part of a path", () => {
+        let mockState = mockStateWithFileName("./something/that/looks/like/catMeme.jsx");
+
+        expect(context.getClassName(mockState)).toBe('catMeme');
     })
 });
