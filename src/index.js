@@ -7,7 +7,7 @@ module.exports = function ({types: types}) {
     let pathToTemplate = filePath.resolve(__dirname, 'component-template.jsx');
     let classTemplate = fs.readFileSync(pathToTemplate, 'utf-8');
 
-    const templateFor = template(classTemplate, {sourceType: 'module'});
+    const templateFor = template(classTemplate, {sourceType: 'module', plugins: ['jsx']});
 
     return {
         name: 'stateless-jsx',
