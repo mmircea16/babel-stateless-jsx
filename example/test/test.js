@@ -3,6 +3,7 @@ import ReactDOMServer from 'react-dom/server'
 import SimpleHello from '../src/SimpleHello.html.jsx'
 import HelloWithProps from '../src/HelloWithProps.html.jsx'
 import HelloWithDOMChildren from '../src/HelloWithDOMChildren.html.jsx'
+import Greetings from '../src/Greetings.html.jsx'
 
 it('should render a hello world div', () => {
     let test = <SimpleHello/>;
@@ -28,4 +29,12 @@ it('should render a hello world div with a bit more complex structure', () => {
     let result = ReactDOMServer.renderToStaticMarkup(test);
 
     expect(result).toBe("<div><p>Hello World!</p><p>This is just another paragraph</p></div>")
+});
+
+it('should render a higher order component', () => {
+    let test = <Greetings/>;
+
+    let result = ReactDOMServer.renderToStaticMarkup(test);
+
+    expect(result).toBe("<div><div>Hola World!</div></div>")
 });
