@@ -23,9 +23,13 @@
     "react": "^16.1.1",
     "react-dom": "^16.1.1"
   },
-  "jest": {
-    "testMatch": [
-      "**/dist/*test*"
+  "babel": {
+    "presets": [
+      "babel-preset-env",
+      "babel-preset-react"
+    ],
+    "plugins": [
+      "../src"
     ]
   }
 }

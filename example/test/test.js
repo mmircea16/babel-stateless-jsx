@@ -4,6 +4,7 @@ import SimpleHello from '../src/SimpleHello.html.jsx'
 import HelloWithProps from '../src/HelloWithProps.html.jsx'
 import HelloWithDOMChildren from '../src/HelloWithDOMChildren.html.jsx'
 import Greetings from '../src/Greetings.html.jsx'
+import GreetingsFromAfar from '../src/GreetingsFromAfar.html.jsx'
 
 it('should render a hello world div', () => {
     let test = <SimpleHello/>;
@@ -37,4 +38,12 @@ it('should render a higher order component', () => {
     let result = ReactDOMServer.renderToStaticMarkup(test);
 
     expect(result).toBe("<div><div>Hola World!</div></div>")
+});
+
+it('should render a higher order component with components from folders', () => {
+    let test = <GreetingsFromAfar/>;
+
+    let result = ReactDOMServer.renderToStaticMarkup(test);
+
+    expect(result).toBe("<div><div>Konnichiwa World!</div></div>")
 });
