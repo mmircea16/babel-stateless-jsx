@@ -18,6 +18,7 @@
   "author": "Mircea Moise",
   "license": "ISC",
   "devDependencies": {
+    "@babel/plugin-syntax-jsx": "^7.0.0-beta.40",
     "babel-plugin-tester": "^5.0.0",
     "jest": "^22.0.6"
   },
@@ -28,11 +29,12 @@
   },
   "jest": {
     "testMatch": [
-      "**/test/*"
+      "**/test/**"
     ],
     "testPathIgnorePatterns": [
       "/node_modules/",
-      "/example/"
+      "/example/",
+      "/test/__fixtures__"
     ]
   }
 }
