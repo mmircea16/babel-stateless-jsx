@@ -15,3 +15,13 @@ it('contains import for Component found', () => {
         new Import("Something", ".")
     ])
 });
+
+it('contains import for Component found', () => {
+    const {ast} = babel.transform("<div><Something __jsxpath='somewhere'/></div>",
+        {plugins: ["@babel/plugin-syntax-jsx"]});
+    let components = [];
+    traverse.default(ast, componentRetriever, null, {components});
+    expect(components).toEqual([
+        new Import("Something", "somewhere"),
+    ])
+});

@@ -30,3 +30,11 @@ it('contains only one import per multiple Component instances', () => {
     expectImport(importDeclarations[0]).toBe("Hola", "./Hola.html.jsx");
     expectImport(importDeclarations[1]).toBe("React", "react");
 });
+
+it('contains import for Component from another folder', () => {
+    const {ast} = babel.transform("<div><Ciao __jsxpath='italian'/></div>", {plugins: [plugin]});
+    let importDeclarations = getImportDeclarations(ast.program);
+    expect(importDeclarations.length).toBe(2);
+    expectImport(importDeclarations[0]).toBe("Ciao", "./italian/Ciao.html.jsx");
+    expectImport(importDeclarations[1]).toBe("React", "react");
+});
