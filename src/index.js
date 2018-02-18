@@ -4,9 +4,8 @@ const filePath = require('path');
 const Visitor = require('./visitors/visitor');
 
 function withNImports(classTemplate, imports) {
-    let importStatement = (name) => `import ${name} from "./${name}.html.jsx";`
-    for (var i=0; i<imports.length; i++) {
-        classTemplate = importStatement(imports[i].name) + '\n' + classTemplate
+    for (let i=0; i<imports.length; i++) {
+        classTemplate = imports[i].statement + '\n' + classTemplate
     }
     return classTemplate
 }
