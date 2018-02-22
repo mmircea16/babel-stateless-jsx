@@ -33,7 +33,6 @@
     ],
     "testPathIgnorePatterns": [
       "/node_modules/",
-      "/example/",
       "/test/__fixtures__"
     ]
   }
