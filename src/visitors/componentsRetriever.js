@@ -1,5 +1,6 @@
 const Import = require("../../src/import").Import;
 const R = require('ramda');
+const attributeRemover = require("./attributeRemover");
 
 module.exports = {
     JSXElement(nodePath) {
@@ -12,14 +13,7 @@ module.exports = {
             this.components.push(new Import(nodeName, source));
 
             if (jsxPaths.length > 0) {
-                nodePath.traverse({
-                    JSXAttribute(nodePath) {
-                        let name = nodePath.node.name.name;
-                        if (name === '__jsxpath') {
-                            nodePath.remove()
-                        }
-                    }
-                })
+                nodePath.traverse(attributeRemover)
             }
         }
     }
