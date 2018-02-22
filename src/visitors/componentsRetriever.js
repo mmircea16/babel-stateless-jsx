@@ -13,7 +13,7 @@ module.exports = {
             this.components.push(new Import(nodeName, source));
 
             if (jsxPaths.length > 0) {
-                nodePath.traverse(attributeRemover)
+                nodePath.traverse(attributeRemover.for("__jsxpath"))
             }
         }
     }

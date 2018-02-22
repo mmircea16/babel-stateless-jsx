@@ -1,8 +1,14 @@
-module.exports = {
-    JSXAttribute(nodePath) {
-        let name = nodePath.node.name.name;
-        if (name === '__jsxpath') {
-            nodePath.remove()
+visitorFor = function (attribute) {
+    return {
+        JSXAttribute(nodePath) {
+            let name = nodePath.node.name.name;
+            if (name === attribute) {
+                nodePath.remove()
+            }
         }
     }
-}
+};
+
+module.exports = {
+    "for": visitorFor
+};
