@@ -1,6 +1,6 @@
 {
   "name": "babel-stateless-jsx",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Babel plugin for stateless jsx files",
   "main": "src/index.js",
   "directories": {
